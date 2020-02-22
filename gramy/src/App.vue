@@ -1,8 +1,7 @@
 <template>
   <div class="app-container">
-
     <!-- header-->
-    <mt-header fixed title="今天穿什么">
+    <mt-header style="background-color: #ec787f" fixed title="今天穿什么">
 <!--     <span slot="left" @click="goBack" v-show="flag">-->
 <!--    <mt-button class="mui-icon mui-icon-back"></mt-button>-->
 <!--      </span>-->
@@ -16,48 +15,72 @@
     <!-- tabbar-->
     <nav class="mui-bar mui-bar-tab">
       <router-link class="mui-tab-item" to="/home">
-        <span class="mui-icon mui-icon-home"></span>
-        <span class="mui-tab-label">首页</span>
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-xiangshui"></use>
+          <title>首页</title>
+        </svg>
+<!--        <span class="iconfont icon-shouye"></span>-->
+<!--        <span class="mui-tab-label">首页</span>-->
       </router-link>
       <router-link class="mui-tab-item" to="/wardrobe">
-        <span class="mui-icon mui-icon-extra mui-icon-extra-heart-filled"></span>
-        <span class="mui-tab-label">衣橱</span>
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-caizhuang"></use>
+          <title>衣橱</title>
+        </svg>
+<!--        <span class="mui-tab-label">衣橱</span>-->
+<!--        <span class="iconfont icon-yifu"></span>-->
+<!--        <span class="mui-tab-label">衣橱</span>-->
       </router-link>
       <router-link class="mui-tab-item" to="/settings">
-        <span class="mui-icon mui-icon-gear"></span>
-        <span class="mui-tab-label">设置</span>
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-huazhuangbao"></use>
+          <title>设置</title>
+        </svg>
+<!--        <span class="mui-tab-label">设置</span>-->
+<!--        <span class="iconfont icon-huazhuangbao"></span>-->
+<!--        <span class="mui-tab-label">设置</span>-->
       </router-link>
     </nav>
   </div>
 </template>
 
-<script>
+<!--<script></script>-->
 
-  // export default{
-  //   data(){
-  //     return{
-  //       flag:false
-  //     };
-  //   },
-  //   created(){
-  //     this.flag=this.$route.path !== '/home';
-  //   },
-  //   methods:{
-  //     $route: undefined,
-  //     goBack(){
-  //       //点击后退
-  //       this.$route.go(-1);
-  //     }
-  //   },
-  //   watch:{
-  //     '$route.path':function(newVal){
-  //       this.flag = newVal !== "/home";
-  //     }
-  //   },
-  // }
-</script>
+<script src="./lib/mui/js/iconfont.js"></script>
+<!--<script>-->
+
+<!--  export default{-->
+<!--    data(){-->
+<!--      return{-->
+<!--        flag:false-->
+<!--      };-->
+<!--    },-->
+<!--    created(){-->
+<!--      this.flag=this.$route.path !== '/home';-->
+<!--    },-->
+<!--    methods:{-->
+<!--      $route: undefined,-->
+<!--      goBack(){-->
+<!--        //点击后退-->
+<!--        this.$route.go(-1);-->
+<!--      }-->
+<!--    },-->
+<!--    watch:{-->
+<!--      '$route.path':function(newVal){-->
+<!--        this.flag = newVal !== "/home";-->
+<!--      }-->
+<!--    },-->
+<!--  }-->
+<!--</script>-->
 
 <style>
+  .icon {
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+  }
   .app-container{
     padding-top: 40px;
     overflow-x: hidden;

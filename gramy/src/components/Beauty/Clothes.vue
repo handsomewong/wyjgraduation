@@ -10,13 +10,14 @@
           <p slot="content" style="font-size: 13px;margin-bottom: 6px">
             <span>{{item.color}}</span> /
             <span>{{item.cloth}}</span> /
-            <span>{{item.typess}}</span>
+            <span>{{item.typess}}</span>/
+            <span>{{item.type}}</span>
           </p>
           <p slot="content" class="abstract">{{item.abs}}</p>
           <el-card style="width: 135px;margin-bottom: 20px;height: 233px;float: left;margin-right: 15px" class="clothes"
                    bodyStyle="padding:10px" shadow="hover">
             <div class="cover" @click="editClothes(item)">
-<!--              <img :src="item.cover" alt="封面">-->
+              <img :src="item.cover" alt="图片">
             </div>
             <div class="info">
               <div class="title">
@@ -65,61 +66,62 @@
                 _this.clothes=resp.data
               }
             })
-          }
-      },
-      handleCurrentChange: function (currentPage) {
-        this.currentPage = currentPage;
-        console.log(this.currentPage)
-      },
-      searchResult () {
-        var _this = this;
-        this.$axios
-          .post('/search', {
-            keywords: this.$refs.searchBar.keywords
-          }).then(resp => {
-          if (resp && resp.status === 200) {
-            _this.books = resp.data
-          }
-        })
-      },
-      deleteClothes (id) {
-        this.$confirm('此操作将永久删除, 是否继续?', '提示', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          type: 'warning'
-        }).then(() => {
-            this.$axios
-              .post('/delete', {id: id}).then(resp => {
-              if (resp && resp.status === 200) {
-                this.loadClothes()
-              }
-            })
-          }
-        ).catch(() => {
-          this.$message({
-            type: 'info',
-            message: '已取消删除'
+          },
+        handleCurrentChange: function (currentPage) {
+          this.currentPage = currentPage;
+          console.log(this.currentPage)
+        },
+        searchResult () {
+          var _this = this;
+          this.$axios
+            .post('/search', {
+              keywords: this.$refs.searchBar.keywords
+            }).then(resp => {
+            if (resp && resp.status === 200) {
+              _this.books = resp.data
+            }
           })
-        })
-        // alert(id)
-      },
-      editClothes (item) {
-        this.$refs.edit.dialogFormVisible = true;
-        this.$refs.edit.form = {
-          id: item.id,
-          // cover: item.cover,
-          title: item.title,
-          color: item.color,
-          cloth: item.cloth,
-          typess: item.typess,
-          type:item.type,
-          abs: item.abs,
-          category: {
-            id: item.category.id.toString(),
-            name: item.category.name
+        },
+        deleteClothes (id) {
+          this.$confirm('此操作将永久删除, 是否继续?', '提示', {
+            confirmButtonText: '确定',
+            cancelButtonText: '取消',
+            type: 'warning'
+          }).then(() => {
+              this.$axios
+                .post('/delete', {id: id}).then(resp => {
+                if (resp && resp.status === 200) {
+                  this.loadClothes()
+                }
+              })
+            }
+          ).catch(() => {
+            this.$message({
+              type: 'info',
+              message: '已取消删除'
+            })
+          })
+          // alert(id)
+        },
+        editClothes (item) {
+          this.$refs.edit.dialogFormVisible = true;
+          this.$refs.edit.form = {
+            id: item.id,
+            cover: item.cover,
+            title: item.title,
+            color: item.color,
+            cloth: item.cloth,
+            typess: item.typess,
+            type:item.type,
+            abs: item.abs,
+            category: {
+              id: item.category.id.toString(),
+              name: item.category.name
+            }
           }
         }
-      }
+      },
+
     }
 </script>
 

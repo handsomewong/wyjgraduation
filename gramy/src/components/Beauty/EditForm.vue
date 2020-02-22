@@ -28,9 +28,13 @@
         <el-form-item label="类型" :label-width="formLabelWidth" prop="typess">
           <el-input v-model="form.typess" autocomplete="off"></el-input>
         </el-form-item>
-        <!--        <el-form-item label="封面" :label-width="formLabelWidth" prop="cover">-->
-        <!--          <el-input v-model="form.cover" autocomplete="off" placeholder="图片 URL"></el-input>-->
-        <!--        </el-form-item>-->
+<!--          <el-form-item label="图片" :label-width="formLabelWidth" prop="cover">-->
+<!--            <el-input v-model="form.cover" autocomplete="off" placeholder="图片 URL"></el-input>-->
+<!--          </el-form-item>-->
+          <el-form-item label="图片" :label-width="formLabelWidth" prop="cover">
+            <el-input v-model="form.cover" autocomplete="off" placeholder="图片 URL"></el-input>
+            <img-upload @onUpload="uploadImg" ref="imgUpload"></img-upload>
+          </el-form-item>
         <el-form-item label="备注" :label-width="formLabelWidth" prop="abs">
           <el-input type="textarea" v-model="form.abs" autocomplete="off"></el-input>
         </el-form-item>
@@ -58,8 +62,10 @@
 </template>
 
 <script>
+  import ImgUpload from "./ImgUpload";
     export default {
         name: "EditForm",
+      components: {ImgUpload},
       data () {
         return {
           dialogFormVisible: false,
@@ -70,7 +76,7 @@
             color: '',
             cloth: '',
             typess: '',
-            // cover: '',
+            cover: '',
             abs: '',
             category: {
               id: '',
@@ -81,6 +87,9 @@
         }
       },
       methods: {
+        uploadImg () {
+          this.form.cover = this.$refs.imgUpload.url
+        },
         clear () {
           this.form = {
             type: [],
@@ -89,7 +98,7 @@
             color: '',
             cloth: '',
             typess: '',
-            // cover: '',
+            cover: '',
             abs: '',
             category: ''
           }
@@ -104,7 +113,8 @@
             typess:this.form.typess,
             type:this.form.type,
             abs:this.form.abs,
-            category:this.form.category
+            category:this.form.category,
+            cover:this.form.cover
           }).then(resp=>{
             if (resp&&resp.status===200){
               this.dialogFormVisible=false;

@@ -18,7 +18,7 @@ public class Clothes {
     @JoinColumn(name="cid")
     private Category category;
 
-//    String cover;
+    String cover;
     String type;
     String color;
     String cloth;
@@ -67,13 +67,13 @@ public class Clothes {
         this.id = id;
     }
 
-//    public String getCover() {
-//        return cover;
-//    }
-//
-//    public void setCover(String cover) {
-//        this.cover = cover;
-//    }
+    public String getCover() {
+        return cover;
+    }
+
+    public void setCover(String cover) {
+        this.cover = cover;
+    }
 
 
     public String getColor() {
