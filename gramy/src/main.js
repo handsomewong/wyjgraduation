@@ -15,6 +15,9 @@ Vue.use(VueRouter);
 //导入router.js模块
 import router from './router.js'
 
+//导入iconfont
+import './lib/mui/js/iconfont'
+
 // 设置反向代理，前端请求默认发送到 http://localhost:8443/api
 var axios = require('axios');
 

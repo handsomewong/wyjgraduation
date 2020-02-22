@@ -39,6 +39,7 @@
           :total="clothes.length">
         </el-pagination>
       </el-row>
+
     </div>
 </template>
 
