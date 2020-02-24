@@ -18,8 +18,11 @@ public class Clothes {
     @JoinColumn(name="cid")
     private Category category;
 
+    @ManyToOne
+    @JoinColumn(name="sid")
+    private Season season;
+
     String cover;
-    String type;
     String color;
     String cloth;
     String typess;
@@ -33,15 +36,11 @@ public class Clothes {
         this.category = category;
     }
 
+    public Season getSeason(){return season;}
+    public void setSeason(Season season) {this.season=season;}
+
     public String getTitle(){return title;}
     public void setTitle(String title) {this.title=title;}
-
-    public String getType() {
-        return type;
-    }
-    public void setType(String type) {
-        this.type = type;
-    }
 
     public String getTypess() {
         return typess;

@@ -42,6 +42,13 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 Vue.use(ElementUI);
 
+//导入vant
+import { Area } from 'vant';
+import 'vant/lib/index.css';
+Vue.use(Area);
+
+import vueCity from 'vue-city-select'
+
 router.beforeEach((to, from, next) => {
     if (to.meta.requireAuth) {
       if (store.state.user.username) {

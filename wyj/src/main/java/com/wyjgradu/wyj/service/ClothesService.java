@@ -3,6 +3,7 @@ package com.wyjgradu.wyj.service;
 import com.wyjgradu.wyj.dao.ClothesDAO;
 import com.wyjgradu.wyj.pojo.Clothes;
 import com.wyjgradu.wyj.pojo.Category;
+import com.wyjgradu.wyj.pojo.Season;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,8 @@ public class ClothesService {
     ClothesDAO clothesDAO;
     @Autowired
     CategoryService categoryService;
+    @Autowired
+    SeasonService seasonService;
 
     public List<Clothes> list(){
 //        Sort sort=new Sort.by(Sort.Direction.DESC,"id");
@@ -35,5 +38,10 @@ public class ClothesService {
         Category category = categoryService.get(cid);
 //        Sort sort = new Sort(Sort.Direction.DESC, "id");
         return clothesDAO.findAllByCategory(category);
+    }
+
+    public List<Clothes> listBySeason(int sid){
+        Season season=seasonService.get(sid);
+        return clothesDAO.findAllBySeason(season);
     }
 }

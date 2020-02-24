@@ -1,9 +1,9 @@
 <template>
   <el-menu default-active="0"
-           class="categories"
+           class="el-menu-vertical-demo"
            @select="handleSelect"
-           active-text-color="#f16f76">
-<!--    mode="horizontal"-->
+           active-text-color="#f16f76"
+           >
     <el-menu-item index="0">
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-huazhuangdai"></use>
@@ -18,8 +18,8 @@
     </el-menu-item>
     <el-menu-item index="2">
       <svg class="icon" aria-hidden="true">
-        <use xlink:href="#icon-icon-test3"></use>
-      </svg>
+      <use xlink:href="#icon-icon-test3"></use>
+    </svg>
       <span slot="title">裤子</span>
     </el-menu-item>
     <el-menu-item index="3">
@@ -45,6 +45,24 @@
         <use xlink:href="#icon-icon-test4"></use>
       </svg>
       <span slot="title">配饰</span>
+    </el-menu-item>
+    <el-menu-item index="7">
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-yanying"></use>
+      </svg>
+      <span slot="title">眼妆</span>
+    </el-menu-item>
+    <el-menu-item index="8">
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-yanzhi"></use>
+      </svg>
+      <span slot="title">腮红</span>
+    </el-menu-item>
+    <el-menu-item index="9">
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-chungao"></use>
+      </svg>
+      <span slot="title">口红</span>
     </el-menu-item>
   </el-menu>
 </template>

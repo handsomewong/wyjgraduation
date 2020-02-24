@@ -113,11 +113,14 @@
             color: item.color,
             cloth: item.cloth,
             typess: item.typess,
-            type:item.type,
             abs: item.abs,
             category: {
               id: item.category.id.toString(),
               name: item.category.name
+            },
+            season: {
+              id: item.season.id.toString(),
+              name: item.season.name
             }
           }
         }
@@ -136,8 +139,8 @@
   }
 
   img {
-    width: 115px;
-    height: 172px;
+    width: 110px;
+    height: 160px;
     /*margin: 0 auto;*/
   }
 

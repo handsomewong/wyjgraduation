@@ -47,6 +47,16 @@ public class BeautyController {
     }
 
     @CrossOrigin
+    @GetMapping("/api/seasons/{sid}/wardrobe")
+    public List<Clothes> listBySeason(@PathVariable("sid") int sid) throws Exception {
+        if (0 != sid) {
+            return clothesService.listBySeason(sid);
+        }else {
+            return list();
+        }
+    }
+
+    @CrossOrigin
     @PostMapping("api/covers")
     public String coversUpload(MultipartFile file) throws Exception {
         String folder = "C:/graduation/img";
@@ -75,5 +85,4 @@ public class BeautyController {
         }
         return sb.toString();
     }
-
 }
