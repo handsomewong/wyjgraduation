@@ -20,8 +20,6 @@ public class ClothesService {
     SeasonService seasonService;
 
     public List<Clothes> list(){
-//        Sort sort=new Sort.by(Sort.Direction.DESC,"id");
-//        return clothesDAO.findAll(sort);
         return clothesDAO.findAll(Sort.by(Sort.Direction.DESC,"id"));
     }
 
@@ -43,5 +41,9 @@ public class ClothesService {
     public List<Clothes> listBySeason(int sid){
         Season season=seasonService.get(sid);
         return clothesDAO.findAllBySeason(season);
+    }
+
+    public List<Clothes> Search(String keywords) {
+        return clothesDAO.findAllByTitleLikeOrTypessLikeOrClothLike('%' + keywords + '%','%' + keywords + '%', '%' + keywords + '%');
     }
 }

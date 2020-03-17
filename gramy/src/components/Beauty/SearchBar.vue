@@ -1,13 +1,13 @@
 <template>
-  <div style="margin-bottom: 30px;display: flex;justify-content: center;align-items: center">
+  <div style="margin-bottom: 20px;display: flex;justify-content: center;align-items: center">
     <el-input
       @keyup.enter.native="searchClick"
-      prefix-icon="el-icon-search"
       size="small"
-      style="width: 400px;margin-right: 10px"
+      style="width: 300px;margin-right: 10px"
+      placeholder="搜索名称和类型"
       v-model="keywords">
     </el-input>
-    <el-button size="small" type="primary" icon="el-icon-search" @click="searchClick">搜索</el-button>
+    <el-button size="small" type="danger" plain @click="searchClick" style="margin-top: -15px">搜索</el-button>
   </div>
 </template>
 

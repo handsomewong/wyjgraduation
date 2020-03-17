@@ -14,19 +14,19 @@
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-icon-test2"></use>
       </svg>
-      <span slot="title">上衣</span>
+      <span slot="title">上装</span>
     </el-menu-item>
     <el-menu-item index="2">
       <svg class="icon" aria-hidden="true">
       <use xlink:href="#icon-icon-test3"></use>
     </svg>
-      <span slot="title">裤子</span>
+      <span slot="title">下装</span>
     </el-menu-item>
     <el-menu-item index="3">
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-icon-test1"></use>
       </svg>
-      <span slot="title">裙装</span>
+      <span slot="title">连衣裙</span>
     </el-menu-item>
     <el-menu-item index="4">
       <svg class="icon" aria-hidden="true">
@@ -42,7 +42,7 @@
     </el-menu-item>
     <el-menu-item index="6">
       <svg class="icon" aria-hidden="true">
-        <use xlink:href="#icon-icon-test4"></use>
+        <use xlink:href="#icon-earrings"></use>
       </svg>
       <span slot="title">配饰</span>
     </el-menu-item>
@@ -63,6 +63,12 @@
         <use xlink:href="#icon-chungao"></use>
       </svg>
       <span slot="title">口红</span>
+    </el-menu-item>
+    <el-menu-item index="10">
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#icon-icon-test4"></use>
+      </svg>
+      <span slot="title">包包</span>
     </el-menu-item>
   </el-menu>
 </template>
@@ -85,18 +91,5 @@
 </script>
 
 <style scoped>
-  .categories {
-    position: fixed;
-    margin-left: 50%;
-    left: -600px;
-    top: 100px;
-    width: 150px;
-  }
-  /*.icon {*/
-  /*  width: 1em;*/
-  /*  height: 1em;*/
-  /*  vertical-align: -0.15em;*/
-  /*  fill: currentColor;*/
-  /*  overflow: hidden;*/
-  /*}*/
+
 </style>

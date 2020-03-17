@@ -1,7 +1,7 @@
 <template>
     <div>
       <el-row>
-        <!--<search-bar></search-bar>-->
+        <search-bar @onSearch="searchResult" ref="searchBar"></search-bar>
         <edit-form @onSubmit="loadClothes()" ref="edit"></edit-form>
         <el-tooltip effect="dark" placement="right"
                     v-for="item in clothes.slice((currentPage-1)*pagesize,currentPage*pagesize)"
@@ -19,12 +19,14 @@
             <div class="cover" @click="editClothes(item)">
               <img :src="item.cover" alt="图片">
             </div>
-            <div class="info">
-              <div class="title">
-                <a href="">{{item.title}}</a>
+            <div>
+              <div>
+                <a class="title">{{item.title}}</a>
               </div>
-<!--              刪除按鈕-->
-              <i class="el-icon-delete" @click="deleteClothes(item.id)"></i>
+              <div>
+                <!--              刪除按鈕-->
+                <i class="el-icon-delete" @click="deleteClothes(item.id)"></i>
+              </div>
             </div>
             <div class="typess">{{item.typess}}</div>
           </el-card>
@@ -53,7 +55,8 @@
         return {
           clothes: [],
           currentPage:1,
-          pagesize: 17
+          pagesize: 11,
+          // dialogVisible: false,
         }
       },
       mounted:function() {
@@ -79,7 +82,7 @@
               keywords: this.$refs.searchBar.keywords
             }).then(resp => {
             if (resp && resp.status === 200) {
-              _this.books = resp.data
+              _this.clothes = resp.data
             }
           })
         },
@@ -147,6 +150,8 @@
   .title {
     font-size: 14px;
     text-align: left;
+    color: #f16f76;
+    margin: -12px 0;
   }
 
   .typess {

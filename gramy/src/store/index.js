@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
@@ -11,8 +11,12 @@ export default new Vuex.Store({
   },
   mutations: {
     login (state, user) {
-      state.user = user
+      state.user = user;
       window.localStorage.setItem('user', JSON.stringify(user))
+    },
+    logout (state) {
+      state.user = [];
+      window.localStorage.removeItem('user')
     }
   }
 })

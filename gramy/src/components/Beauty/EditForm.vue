@@ -1,7 +1,9 @@
 <template>
   <div>
     <i @click="dialogFormVisible = true">
-      <el-button plain>添加</el-button>
+      <svg class="addsty" aria-hidden="true">
+        <use xlink:href="#icon-xihuantianjia"></use>
+      </svg>
     </i>
     <el-dialog
       title="添加/修改"
@@ -48,6 +50,7 @@
             <el-option label="眼妆" value="7"></el-option>
             <el-option label="腮红" value="8"></el-option>
             <el-option label="口红" value="9"></el-option>
+            <el-option label="包包" value="10"></el-option>
           </el-select>
         </el-form-item>
           <el-form-item prop="id" style="height: 0">
@@ -138,10 +141,17 @@
 </script>
 
 <style scoped>
-  .el-icon-circle-plus-outline {
-    margin: 50px 0 0 20px;
-    font-size: 100px;
+
+  .addsty{
+    width: 5em;
+    height: 5em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+    margin: 50px 35px 0 30px;
+    /*size: 100px;*/
     float: left;
     cursor: pointer;
   }
+
 </style>

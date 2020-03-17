@@ -10,6 +10,6 @@ import java.util.List;
 
 public interface ClothesDAO extends JpaRepository<Clothes,Integer> {
     List<Clothes> findAllByCategory(Category category);
-    List<Clothes> findAllByColorLikeOrTypessLike(String keyword1,String keyword2);
+    List<Clothes> findAllByTitleLikeOrTypessLikeOrClothLike(String keyword1,String keyword2,String keyword3);
     List<Clothes> findAllBySeason(Season season);
 }

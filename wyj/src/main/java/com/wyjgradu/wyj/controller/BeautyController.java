@@ -1,6 +1,7 @@
 package com.wyjgradu.wyj.controller;
 
 import com.wyjgradu.wyj.pojo.Clothes;
+import com.wyjgradu.wyj.pojo.Search;
 import com.wyjgradu.wyj.service.ClothesService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +44,17 @@ public class BeautyController {
             return clothesService.listByCategory(cid);
         }else {
             return list();
+        }
+    }
+
+    @CrossOrigin
+    @PostMapping("/api/search")
+    public List<Clothes> searchResult(@RequestBody Search s) throws Exception {
+        // 关键字为空时查询所有物品
+        if ("".equals(s.getKeywords())) {
+            return clothesService.list();
+        } else {
+            return clothesService.Search(s.getKeywords());
         }
     }
 

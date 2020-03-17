@@ -47,7 +47,10 @@ import { Area } from 'vant';
 import 'vant/lib/index.css';
 Vue.use(Area);
 
-import vueCity from 'vue-city-select'
+//导入自定义css
+import './components/tabbar/collocation/collocationsty.css'
+
+// import vueCity from 'vue-city-select'
 
 router.beforeEach((to, from, next) => {
     if (to.meta.requireAuth) {
